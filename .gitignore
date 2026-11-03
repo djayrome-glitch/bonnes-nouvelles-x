@@ -1,0 +1,8 @@
+.env
+bot.db
+bot.db-journal
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.zip
