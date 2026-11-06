@@ -206,7 +206,7 @@ def write_tweet(client, item):
     """Renvoie le texte du tweet (sans lien), ou None si l'article est écarté."""
     resp = client.messages.create(
         model=MODEL,
-        max_tokens=400,
+        max_tokens=2000,  # marge pour un éventuel bloc de réflexion avant la réponse
         messages=[
             {
                 "role": "user",
@@ -216,7 +216,10 @@ def write_tweet(client, item):
             }
         ],
     )
-    text = resp.content[0].text.strip()
+    # La réponse peut commencer par un bloc "thinking" : on ne garde que les blocs texte.
+    text = "".join(
+        b.text for b in resp.content if getattr(b, "type", None) == "text"
+    ).strip()
     try:
         data = json.loads(text[text.find("{") : text.rfind("}") + 1])
     except ValueError:
