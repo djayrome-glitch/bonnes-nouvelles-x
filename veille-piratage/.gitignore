@@ -1,0 +1,7 @@
+.env
+piratage.db
+piratage.db-journal
+venv/
+.venv/
+__pycache__/
+*.pyc

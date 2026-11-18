@@ -74,8 +74,11 @@ lancez `python app.py`. Si l'interface doit être joignable depuis Internet, dé
 - Relisez toujours les chiffres et les nuances (« premiers essais », « chez l'animal »).
 - Ne commitez jamais `.env` (déjà dans `.gitignore`).
 
-## Autre bot du dépôt
+## Autres projets du dépôt
 
-Le dossier [`tv-numerique/`](tv-numerique/) contient un bot de veille sur la TV numérique
-(technique et industrie, sources internationales) qui publie sur LinkedIn. Il est
-indépendant de celui-ci et peut tourner sur la même machine.
+Indépendants de celui-ci, ils peuvent tourner sur la même machine :
+
+- [`tv-numerique/`](tv-numerique/) : bot de veille sur la TV numérique (technique et
+  industrie, sources internationales) qui publie sur LinkedIn.
+- [`veille-piratage/`](veille-piratage/) : site web mis à jour automatiquement qui dresse
+  l'état mondial du piratage audiovisuel et des cyberattaques (carte, indicateurs, fil).

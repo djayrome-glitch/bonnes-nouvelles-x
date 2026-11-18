@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Observatoire du piratage</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main id="main">
+  <header class="top">
+    <div>
+      <h1>Observatoire mondial du piratage</h1>
+      <p class="sub">Piratage audiovisuel et cyberattaques, recensés dans la presse internationale</p>
+    </div>
+    <div class="live" id="live" role="status" aria-live="polite"><span class="dot"></span><span id="live-text">Connexion…</span></div>
+  </header>
+
+  <div class="filters" role="toolbar" aria-label="Filtres">
+    <div class="seg" id="f-domain" aria-label="Domaine">
+      <button type="button" data-v="all" aria-pressed="true">Tout</button>
+      <button type="button" data-v="audiovisuel" aria-pressed="false">Audiovisuel</button>
+      <button type="button" data-v="cyber" aria-pressed="false">Cyber</button>
+    </div>
+    <div class="seg" id="f-period" aria-label="Période">
+      <button type="button" data-v="1" aria-pressed="false">24 h</button>
+      <button type="button" data-v="7" aria-pressed="true">7 jours</button>
+      <button type="button" data-v="30" aria-pressed="false">30 jours</button>
+    </div>
+    <span class="chip" id="f-country" hidden><span id="f-country-name"></span><button type="button" aria-label="Retirer le filtre pays">×</button></span>
+  </div>
+
+  <section class="card summary" aria-labelledby="h-summary">
+    <h2 id="h-summary">Synthèse des dernières 24 heures</h2>
+    <span class="when" id="summary-when"></span>
+    <p id="summary-text">En attente de la première collecte…</p>
+  </section>
+
+  <section class="tiles" aria-label="Indicateurs">
+    <div class="tile"><div class="label">Événements</div><div class="value" id="t-total">–</div><div class="split" id="t-total-split"></div></div>
+    <div class="tile"><div class="label">Gravité élevée ou critique</div><div class="value" id="t-severe">–</div><div class="split" id="t-severe-split"></div></div>
+    <div class="tile"><div class="label">Pays concernés</div><div class="value" id="t-countries">–</div><div class="split" id="t-countries-split"></div></div>
+    <div class="tile"><div class="label">Sources citées</div><div class="value" id="t-sources">–</div><div class="split" id="t-sources-split"></div></div>
+  </section>
+
+  <div class="grid map-row">
+    <section class="card" aria-labelledby="h-map">
+      <h2 id="h-map">Carte des événements</h2>
+      <p class="hint">Nombre d'événements par pays sur la période. Cliquez sur un pays pour filtrer.</p>
+      <div id="map"></div>
+      <div class="ramp" id="ramp"></div>
+    </section>
+    <section class="card" aria-labelledby="h-rank">
+      <h2 id="h-rank">Pays les plus concernés</h2>
+      <p class="hint">Cliquez pour filtrer.</p>
+      <div class="legend" id="rank-legend"></div>
+      <ol class="rank" id="rank"></ol>
+    </section>
+  </div>
+
+  <div class="grid two">
+    <section class="card" aria-labelledby="h-time">
+      <h2 id="h-time">Évolution</h2>
+      <p class="hint" id="time-hint"></p>
+      <div class="legend" id="time-legend"></div>
+      <div id="timeline"></div>
+    </section>
+    <section class="card types" aria-labelledby="h-types">
+      <h2 id="h-types">Types d'événements</h2>
+      <p class="hint">Sur la période sélectionnée.</p>
+      <div id="types"></div>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="h-feed">
+    <h2 id="h-feed">Fil des événements</h2>
+    <p class="hint">Titres et résumés rédigés par IA (Claude) à partir des articles : vérifiez à la source.</p>
+    <ol class="feed" id="feed"></ol>
+    <div class="more" id="more" hidden><button type="button">Afficher plus</button></div>
+  </section>
+
+  <footer>Mise à jour automatique · données issues de flux RSS publics · carte : Natural Earth</footer>
+</main>
+<div id="tip" hidden></div>
+<script src="/static/vendor/d3.min.js"></script>
+<script src="/static/vendor/topojson-client.min.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>
