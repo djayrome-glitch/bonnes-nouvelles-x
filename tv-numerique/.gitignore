@@ -1,0 +1,7 @@
+.env
+tv.db
+tv.db-journal
+venv/
+.venv/
+__pycache__/
+*.pyc

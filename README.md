@@ -73,3 +73,9 @@ lancez `python app.py`. Si l'interface doit être joignable depuis Internet, dé
 - Indiquez sur le profil du compte que les tweets sont rédigés avec l'aide d'une IA.
 - Relisez toujours les chiffres et les nuances (« premiers essais », « chez l'animal »).
 - Ne commitez jamais `.env` (déjà dans `.gitignore`).
+
+## Autre bot du dépôt
+
+Le dossier [`tv-numerique/`](tv-numerique/) contient un bot de veille sur la TV numérique
+(technique et industrie, sources internationales) qui publie sur LinkedIn. Il est
+indépendant de celui-ci et peut tourner sur la même machine.
